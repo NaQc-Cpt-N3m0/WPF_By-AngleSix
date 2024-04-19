@@ -37,5 +37,16 @@ namespace _001_The_Basic_UI
         {
             this.LenghtText.Text += ((CheckBox)sender).Content; // Ở đây Text của TextBox sẽ cộng bằng các conten được tích vào.
         }
+
+        private void FinishDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {   
+            if ( this.NoteText == null)
+            {
+                return;
+            }
+            var combo = (ComboBox)sender;
+            var value = (ComboBoxItem)combo.SelectedValue;
+            this.NoteText.Text = (string)value.Content;
+        }
     }
 }
